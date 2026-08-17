@@ -63,7 +63,7 @@ For a standard 95% confidence level:
 - Significance level: `α = 0.05`
 - Degrees of freedom: `n - 1`
 - Critical value: `t_(α/2, n-1)`
-- Margin of error is calculated from the sample standard deviation and sample size.
+- Margin of error is calculated from the sample standard deviation and sample size
 
 The resulting interval provides an estimate of the range in which the population mean is expected to lie.
 
@@ -91,9 +91,6 @@ These plots provide a visual assessment of how closely the observed data follows
 │   └── statistical_analysis.py
 │
 ├── data/
-│   ├── *.csv
-│   └── *.png
-│
 ├── main.py
 ├── requirements.txt
 └── README.md
@@ -105,7 +102,7 @@ These plots provide a visual assessment of how closely the observed data follows
   Contains the core statistical functions for data generation, descriptive analysis, distribution fitting, confidence interval calculation, and visualization.
 
 * `data/`
-  Contains datasets and automatically generated statistical visualization outputs.
+  Directory used for datasets and generated statistical visualization outputs.
 
 * `main.py`
   Entry point that orchestrates the complete statistical analysis pipeline and produces the final analytical output.
