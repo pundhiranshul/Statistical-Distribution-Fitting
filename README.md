@@ -279,10 +279,12 @@ The implementation translates these statistical concepts into an automated Pytho
 
 ## 👥 Project Information
 
-**Course:** MSL-719
-**Institution:** Indian Institute of Technology Delhi
-**Project Type:** Academic Project
-**Project Group:** Group 5
+| | |
+|---|---|
+| **Course** | MSL-719 |
+| **Institution** | Indian Institute of Technology Delhi (IIT Delhi) |
+| **Project Type** | Academic Project |
+| **Project Group** | Group 5 |
 
 ---
 
