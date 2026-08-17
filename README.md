@@ -1,4 +1,3 @@
-````markdown
 # MSL-719: Statistical Analysis & Parametric Distribution Fitting
 
 ## 📌 Overview
@@ -15,11 +14,11 @@ This project was developed as an **academic project for the MSL-719 course at th
 
 The project calculates key statistical measures, including:
 
-- Mean
-- Median
-- Coefficient of Variation
-- Coefficient of Skewness
-- Coefficient of Kurtosis
+* Mean
+* Median
+* Coefficient of Variation
+* Coefficient of Skewness
+* Coefficient of Kurtosis
 
 These metrics provide a statistical summary of the generated or supplied datasets.
 
@@ -31,12 +30,12 @@ The pipeline evaluates datasets against multiple theoretical probability distrib
 
 The following distributions are evaluated using the `fitter` library:
 
-- Gamma
-- Rayleigh
-- Uniform
-- Normal
-- Cauchy
-- Exponential
+* Gamma
+* Rayleigh
+* Uniform
+* Normal
+* Cauchy
+* Exponential
 
 The best-fitting distribution is identified based on the **sum of squared errors (SSE)**.
 
@@ -44,15 +43,15 @@ The best-fitting distribution is identified based on the **sum of squared errors
 
 The project also uses the `distfit` library for parametric distribution modeling across a broader collection of probability distributions, including:
 
-- Beta
-- Chi
-- t
-- f
-- Normal
-- Exponential
-- Gamma
-- Uniform
-- and other supported distributions
+* Beta
+* Chi
+* t
+* f
+* Normal
+* Exponential
+* Gamma
+* Uniform
+* and other supported distributions
 
 ### 3. Confidence Interval Calculation
 
@@ -60,10 +59,10 @@ The project programmatically calculates the confidence interval for the populati
 
 For a standard 95% confidence level:
 
-- Significance level: `α = 0.05`
-- Degrees of freedom: `n - 1`
-- Critical value: `t_(α/2, n-1)`
-- Margin of error is calculated from the sample standard deviation and sample size
+* Significance level: `α = 0.05`
+* Degrees of freedom: `n - 1`
+* Critical value: `t_(α/2, n-1)`
+* Margin of error is calculated from the sample standard deviation and sample size
 
 The resulting interval provides an estimate of the range in which the population mean is expected to lie.
 
@@ -73,11 +72,11 @@ The pipeline automatically generates statistical visualizations and saves them a
 
 Generated visualizations include:
 
-- **Probability Density Function (PDF) plots**
-- **Cumulative Distribution Function (CDF) plots**
-- **Histogram-based distribution comparisons**
-- **Quantile-Quantile (QQ) plots**
-- **Goodness-of-fit visualizations**
+* **Probability Density Function (PDF) plots**
+* **Cumulative Distribution Function (CDF) plots**
+* **Histogram-based distribution comparisons**
+* **Quantile-Quantile (QQ) plots**
+* **Goodness-of-fit visualizations**
 
 These plots provide a visual assessment of how closely the observed data follows the selected theoretical distributions.
 
@@ -94,7 +93,7 @@ These plots provide a visual assessment of how closely the observed data follows
 ├── main.py
 ├── requirements.txt
 └── README.md
-````
+```
 
 ### File Description
 
@@ -234,6 +233,3 @@ The implementation demonstrates how these mathematical and statistical concepts 
 ## 📄 License
 
 This project is intended primarily for academic and educational purposes.
-
-```
-```
