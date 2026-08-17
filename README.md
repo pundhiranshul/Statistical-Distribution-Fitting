@@ -2,17 +2,35 @@
 
 ## 📌 Overview
 
-This repository contains a comprehensive, automated pipeline for statistical analysis, parametric distribution modeling, and data visualization.
+This repository contains a Python-based pipeline for **statistical analysis, parametric distribution fitting, confidence interval estimation, and statistical visualization**.
 
-This project was developed as an **academic project for the MSL-719 course at the Indian Institute of Technology Delhi (IIT Delhi)**. It demonstrates the application of statistical methods, probability distributions, descriptive statistics, confidence interval estimation, and programmatic data analysis using Python.
+This project was developed as an **academic project for the MSL-719 course at the Indian Institute of Technology Delhi (IIT Delhi)**. It applies statistical and computational methods to analyze a synthetically generated dataset and evaluate its fit against multiple theoretical probability distributions.
 
 ---
 
-## 🚀 Core Capabilities
+## 🚀 Features
 
-### 1. Descriptive Statistics
+### 1. Synthetic Data Generation
 
-The project calculates key statistical measures, including:
+The pipeline generates a synthetic dataset from a **normal distribution** with:
+
+* Mean (`μ`) = 2
+* Standard deviation (`σ`) = 1
+* Sample size = 100,000
+
+The generated dataset is saved as:
+
+```text
+data/MSL-719.csv
+```
+
+If the dataset already exists, the pipeline loads the existing CSV instead of generating a new dataset.
+
+---
+
+### 2. Descriptive Statistics
+
+The project calculates the following descriptive statistical measures:
 
 * Mean
 * Median
@@ -20,15 +38,13 @@ The project calculates key statistical measures, including:
 * Coefficient of Skewness
 * Coefficient of Kurtosis
 
-These metrics provide a statistical summary of the generated or supplied datasets.
+These statistics provide a quantitative summary of the generated dataset.
 
-### 2. Parametric Distribution Fitting
+---
 
-The pipeline evaluates datasets against multiple theoretical probability distributions to identify suitable statistical models.
+### 3. Parametric Distribution Fitting with Fitter
 
-#### Fitter Evaluation
-
-The following distributions are evaluated using the `fitter` library:
+The project uses the `Fitter` library to evaluate the dataset against the following probability distributions:
 
 * Gamma
 * Rayleigh
@@ -37,48 +53,55 @@ The following distributions are evaluated using the `fitter` library:
 * Cauchy
 * Exponential
 
-The best-fitting distribution is identified based on the **sum of squared errors (SSE)**.
+The fitting process identifies the best-fitting distribution and reports its location and scale parameters.
 
-#### Distfit Modeling
+---
 
-The project also uses the `distfit` library for parametric distribution modeling across a broader collection of probability distributions, including:
+### 4. Confidence Interval Estimation
 
+The project calculates a confidence interval for the sample mean using the **t-distribution**.
+
+The calculation uses:
+
+* Significance level: `α = 0.05`
+* Degrees of freedom: `n - 1`
+* Sample standard deviation
+* Sample size
+* t-critical value
+* Margin of error
+
+The resulting interval provides an estimate of the population mean based on the observed sample.
+
+---
+
+### 5. Parametric Modeling with Distfit
+
+The project additionally uses the `distfit` library to evaluate a broader collection of theoretical distributions:
+
+* Normal
+* Exponential
+* Cauchy
+* Gamma
 * Beta
 * Chi
 * t
 * f
-* Normal
-* Exponential
-* Gamma
-* Uniform
-* and other supported distributions
 
-### 3. Confidence Interval Calculation
+The best-fitting model identified by `distfit` is reported as part of the final analysis.
 
-The project programmatically calculates the confidence interval for the population mean using the **t-distribution**.
+---
 
-For a standard 95% confidence level:
+### 6. Statistical Visualization
 
-* Significance level: `α = 0.05`
-* Degrees of freedom: `n - 1`
-* Critical value: `t_(α/2, n-1)`
-* Margin of error is calculated from the sample standard deviation and sample size
+The pipeline automatically generates statistical visualizations using `Matplotlib` and `distfit`.
 
-The resulting interval provides an estimate of the range in which the population mean is expected to lie.
-
-### 4. Automated Visualization
-
-The pipeline automatically generates statistical visualizations and saves them as PNG files.
-
-Generated visualizations include:
+The generated plots include:
 
 * **Probability Density Function (PDF) plots**
 * **Cumulative Distribution Function (CDF) plots**
-* **Histogram-based distribution comparisons**
 * **Quantile-Quantile (QQ) plots**
-* **Goodness-of-fit visualizations**
 
-These plots provide a visual assessment of how closely the observed data follows the selected theoretical distributions.
+The visualizations are saved to the `data/` directory when the program is executed.
 
 ---
 
@@ -88,8 +111,7 @@ These plots provide a visual assessment of how closely the observed data follows
 .
 ├── src/
 │   └── statistical_analysis.py
-│
-├── data/
+├── .gitignore
 ├── main.py
 ├── requirements.txt
 └── README.md
@@ -98,16 +120,21 @@ These plots provide a visual assessment of how closely the observed data follows
 ### File Description
 
 * `src/statistical_analysis.py`
-  Contains the core statistical functions for data generation, descriptive analysis, distribution fitting, confidence interval calculation, and visualization.
-
-* `data/`
-  Directory used for datasets and generated statistical visualization outputs.
+  Contains the core statistical functions for data generation, data loading, descriptive statistics, distribution fitting, confidence interval calculation, and visualization.
 
 * `main.py`
-  Entry point that orchestrates the complete statistical analysis pipeline and produces the final analytical output.
+  Acts as the main entry point and orchestrates the complete statistical analysis pipeline.
 
 * `requirements.txt`
-  Lists the Python dependencies required to run the project.
+  Contains the Python dependencies required to run the project.
+
+* `.gitignore`
+  Contains files and directories that should not be tracked by Git.
+
+* `README.md`
+  Provides documentation for the project.
+
+The generated dataset and visualization files are produced in the `data/` directory during execution and are not part of the tracked repository files.
 
 ---
 
@@ -132,15 +159,22 @@ These plots provide a visual assessment of how closely the observed data follows
 
 * Matplotlib
 
+The project's `requirements.txt` currently specifies these six dependencies.
+
 ---
 
 ## 💻 Installation & Usage
 
-Clone the repository and navigate into the project directory:
+Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+git clone https://github.com/pundhiranshul/Statistical-Distribution-Fitting.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd Statistical-Distribution-Fitting
 ```
 
 Install the required dependencies:
@@ -155,22 +189,28 @@ Run the complete statistical analysis pipeline:
 python main.py
 ```
 
-The program will perform the statistical analysis and generate the corresponding visualization files automatically.
+The program will:
+
+1. Generate or load the dataset.
+2. Calculate descriptive statistics.
+3. Fit the data using the `Fitter` library.
+4. Calculate the confidence interval for the sample mean.
+5. Perform additional parametric modeling using `distfit`.
+6. Generate PDF, CDF, and QQ plots.
+7. Save the generated dataset and visualizations to the `data/` directory.
 
 ---
 
 ## 📊 Analysis Workflow
 
-The overall workflow can be summarized as:
-
 ```text
 Dataset
    │
    ▼
-Data Generation / Loading
+Generate / Load Data
    │
    ▼
-Descriptive Statistical Analysis
+Descriptive Statistics
    │
    ├── Mean
    ├── Median
@@ -179,45 +219,61 @@ Descriptive Statistical Analysis
    └── Kurtosis
    │
    ▼
-Parametric Distribution Fitting
+Fitter Distribution Evaluation
    │
-   ├── Fitter
-   └── Distfit
+   ├── Gamma
+   ├── Rayleigh
+   ├── Uniform
+   ├── Normal
+   ├── Cauchy
+   └── Exponential
    │
    ▼
-Best-Fit Distribution Selection
+Best-Fit Distribution
    │
    ▼
-Confidence Interval Estimation
+Confidence Interval
+   │
+   ▼
+Distfit Parametric Modeling
+   │
+   ├── Normal
+   ├── Exponential
+   ├── Cauchy
+   ├── Gamma
+   ├── Beta
+   ├── Chi
+   ├── t
+   └── f
    │
    ▼
 Statistical Visualization
    │
    ├── PDF
    ├── CDF
-   └── QQ-Plots
+   └── QQ Plots
    │
    ▼
-PNG Output
+Generated Output
 ```
 
 ---
 
 ## 🎓 Academic Context
 
-This project was developed as part of **MSL-719 at the Indian Institute of Technology Delhi (IIT Delhi)**.
+This project was developed as part of the **MSL-719 course at the Indian Institute of Technology Delhi (IIT Delhi)**.
 
-The work focuses on applying statistical theory and computational methods to practical data analysis problems, with particular emphasis on:
+The project demonstrates the practical implementation of statistical concepts including:
 
 * Probability distributions
-* Statistical parameter estimation
 * Descriptive statistics
-* Distribution fitting
-* Confidence intervals
+* Statistical parameter estimation
+* Parametric distribution fitting
+* Confidence interval estimation
 * Goodness-of-fit analysis
 * Statistical visualization
 
-The implementation demonstrates how these mathematical and statistical concepts can be translated into an automated Python-based analytical workflow.
+The implementation translates these statistical concepts into an automated Python workflow for computational analysis.
 
 ---
 
